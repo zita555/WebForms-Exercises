@@ -115,6 +115,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="ExercisePages\ExerciseHome.aspx" />
+    <Content Include="ExercisePages\SimpleQuery.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -278,6 +280,20 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ExercisePages\ExerciseHome.aspx.cs">
+      <DependentUpon>ExerciseHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExercisePages\ExerciseHome.aspx.designer.cs">
+      <DependentUpon>ExerciseHome.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExercisePages\SimpleQuery.aspx.cs">
+      <DependentUpon>SimpleQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExercisePages\SimpleQuery.aspx.designer.cs">
+      <DependentUpon>SimpleQuery.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -323,6 +339,12 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FSISSystem\FSISSystem.csproj">
+      <Project>{63776f4e-7480-42bd-a638-71e0394bcf8b}</Project>
+      <Name>FSISSystem</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
