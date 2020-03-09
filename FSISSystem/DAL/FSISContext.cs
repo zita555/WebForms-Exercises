@@ -13,7 +13,7 @@ namespace FSISSystem.DAL
 {
     internal class FSISContext : DbContext
     {
-        public FSISContext() : base(FSIS_db)
+        public FSISContext() : base("FSIS_db")
         {
 
         }
