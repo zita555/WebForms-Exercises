@@ -15,7 +15,7 @@ namespace FSISSystem.BLL
         {
             using (var context = new FSISContext())
             {
-                return ContextBoundObject.Teams.Find(teamid);
+                return context.Teams.Find(teamid);
             }
         }
     }
