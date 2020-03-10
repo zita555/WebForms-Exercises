@@ -12,11 +12,12 @@
             </div>
         </div>
         <div class="col-md-6">
-            <asp:Label runat="server" Text="Team ID"></asp:Label>&nbsp;&nbsp;
+            <asp:Label runat="server" Text="Team ID: "></asp:Label>&nbsp;&nbsp;
             <asp:Label ID="TeamID" runat="server"></asp:Label>
             <br />
-            <asp:Label runat="server" Team="Description:"></asp:Label>&nbsp;&nbsp;
+            <asp:Label runat="server" Text="Team Name:"></asp:Label>&nbsp;&nbsp;
             <asp:Label ID="TeamDescription" runat="server" ></asp:Label>
         </div>
     </div>
 </asp:Content>
+
