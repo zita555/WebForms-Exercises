@@ -12,7 +12,7 @@ using System.ComponentModel.DataAnnotations;
 namespace FSISSystem.ENTITIES
 {
     [Table("Guardian")]
-    class Guardian
+    public class Guardian
     {
         public int GuardianID { get; set; }
         public string FirstName { get; set; }
