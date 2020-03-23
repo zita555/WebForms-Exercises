@@ -14,6 +14,7 @@ namespace FSISSystem.ENTITIES
     [Table("Player")]
     public class Player
     {
+        [Key]
         public int PlayerID { get; set; }
         public int GuardianID { get; set; }
         public int TeamID { get; set; }
@@ -21,8 +22,17 @@ namespace FSISSystem.ENTITIES
         public string LastName { get; set; }
         public int Age { get; set; }
         public char Gender { get; set; }
-        public string AlbertaHealthCaseNumber { get; set; }
+        public string? AlbertaHealthCaseNumber { get; set; }
         public string MedicalAlertDetails { get; set; }
+
+        [NotMapped]
+        public string PlayerName
+        {
+            get
+            {
+                return FirstName + " " + LastName;
+            }
+        }
 
     }
 }

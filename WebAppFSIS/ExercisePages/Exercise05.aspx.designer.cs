@@ -10,7 +10,7 @@
 namespace WebAppFSIS.ExercisePages {
     
     
-    public partial class SimpleQuery {
+    public partial class Exercise05 {
         
         /// <summary>
         /// TeamIDArg control.

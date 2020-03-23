@@ -10,21 +10,14 @@ using FSISSystem.ENTITIES;
 
 namespace FSISSystem.BLL
 {
-    public class TeamController
+    public class PlayerController
     {
-        public Team Teams_FindByID(int teamid)
+        public List<Player> FindByID(int teamid)
         {
             using (var context = new FSISContext())
             {
-                return context.Teams.Find(teamid);
-            }
-        }
-
-        public List<Team> List()
-        {
-            using (var context = new FSISContext())
-            {
-                return context.Teams.ToList();
+                IEnumerable<Player> results = context.Database.SqlQuery<Player>("Player_GetByTeam @teamId", new SqlParameter("teamid", teamid));
+                return results.ToList();
             }
         }
     }
