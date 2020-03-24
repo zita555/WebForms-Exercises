@@ -22,7 +22,7 @@ namespace FSISSystem.ENTITIES
         public string LastName { get; set; }
         public int Age { get; set; }
         public char Gender { get; set; }
-        public string AlbertaHealthCaseNumber { get; set; }
+        public string AlbertaHealthCareNumber { get; set; }
         public string MedicalAlertDetails { get; set; }
 
         [NotMapped]

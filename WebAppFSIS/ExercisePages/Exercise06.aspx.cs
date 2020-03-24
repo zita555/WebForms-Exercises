@@ -45,7 +45,7 @@ namespace WebAppFSIS.ExercisePages
         {
             if (TeamList.SelectedIndex == 0)
             {
-                MessageLabel.Text = "Select a team to view its players";
+                MessageLabel.Text = "Select a team to view its players.";
             }
             else
             {

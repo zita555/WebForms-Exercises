@@ -8,6 +8,15 @@
         <br /><br />
         <asp:Label ID="MessageLabel" runat="server"></asp:Label>
         <br />
+        <div>
+            <%--
+                <asp:Label runat="server" Text="Coach"></asp:Label>
+                <asp:Label runat="server" Text="AssistantCoach"></asp:Label>
+                <asp:Label runat="server" Text="Wins"></asp:Label>
+                <asp:Label runat="server" Text="Losses"></asp:Label>
+            --%>
+        </div>
+        <br />
         <asp:GridView ID="PlayerList" runat="server"></asp:GridView>
     </div>
 </asp:Content>
