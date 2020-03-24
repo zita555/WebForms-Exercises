@@ -26,10 +26,10 @@ namespace WebAppFSIS.ExercisePages
             try
             {
                 TeamController teamController = new TeamController();
-                List<Team> team = null;
-                team = teamController.List();
-                team.Sort((x, y) => x.TeamName.CompareTo(y.TeamName));
-                TeamList.DataSource = team;
+                List<Team> listOfTeams = null;
+                listOfTeams = teamController.List();
+                listOfTeams.Sort((x, y) => x.TeamName.CompareTo(y.TeamName));
+                TeamList.DataSource = listOfTeams;
                 TeamList.DataTextField = nameof(Team.TeamName);
                 TeamList.DataValueField = nameof(Team.TeamID);
                 TeamList.DataBind();
@@ -52,10 +52,10 @@ namespace WebAppFSIS.ExercisePages
                 try
                 {
                     PlayerController playerController = new PlayerController();
-                    List<Player> player = null;
-                    player = playerController.FindByID(int.Parse(TeamList.SelectedValue));
-                    player.Sort((x, y) => x.PlayerName.CompareTo(y.PlayerName));
-                    PlayerList.DataSource = player;
+                    List<Player> listOfPlayers = null;
+                    listOfPlayers = playerController.FindByID(int.Parse(TeamList.SelectedValue));
+                    listOfPlayers.Sort((x, y) => x.PlayerName.CompareTo(y.PlayerName));
+                    PlayerList.DataSource = listOfPlayers;
                     PlayerList.DataBind();
                 }
                 catch (Exception ex)
