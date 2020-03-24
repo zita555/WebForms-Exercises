@@ -1,6 +1,6 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Exercise05.aspx.cs" Inherits="WebAppFSIS.ExercisePages.SimpleQuery" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Exercise05.aspx.cs" Inherits="WebAppFSIS.ExercisePages.Exercise05" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Simple Query by Primary Key</h1>
+    <h1>Exercise 5</h1>
     <div class="row">
         <div class="col-md-6">
             <div class="offset-1">
