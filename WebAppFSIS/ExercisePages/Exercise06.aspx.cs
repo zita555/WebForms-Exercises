@@ -15,6 +15,7 @@ namespace WebAppFSIS.ExercisePages
         protected void Page_Load(object sender, EventArgs e)
         {
             MessageLabel.Text = "";
+            TeamInfo.Visible = false;
             if (!Page.IsPostBack)
             {
                 BindList();
@@ -49,6 +50,26 @@ namespace WebAppFSIS.ExercisePages
             }
             else
             {
+                TeamController teamController = new TeamController();
+                Team teamInfo = null;
+                teamInfo = teamController.Teams_FindByID(int.Parse(TeamList.SelectedValue));
+                if (teamInfo == null)
+                {
+                    TeamInfo.Visible = false;
+                    Coach.Text = "";
+                    AssistantCoach.Text = "";
+                    Wins.Text = "";
+                    Losses.Text = "";
+                }
+                else
+                {
+                    TeamInfo.Visible = true;
+                    Coach.Text = teamInfo.Coach;
+                    AssistantCoach.Text = teamInfo.AssistantCoach;
+                    Wins.Text = teamInfo.Wins.ToString();
+                    Losses.Text = teamInfo.Losses.ToString();
+                }
+
                 try
                 {
                     PlayerController playerController = new PlayerController();
@@ -57,6 +78,7 @@ namespace WebAppFSIS.ExercisePages
                     listOfPlayers.Sort((x, y) => x.PlayerName.CompareTo(y.PlayerName));
                     PlayerList.DataSource = listOfPlayers;
                     PlayerList.DataBind();
+                    //PlayerList.Columns[PlayerList.Columns.Count - 1].Visible = false;
                 }
                 catch (Exception ex)
                 {

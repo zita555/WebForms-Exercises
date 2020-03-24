@@ -8,14 +8,19 @@
         <br /><br />
         <asp:Label ID="MessageLabel" runat="server"></asp:Label>
         <br />
-        <div>
-            <%--
-                <asp:Label runat="server" Text="Coach"></asp:Label>
-                <asp:Label runat="server" Text="AssistantCoach"></asp:Label>
-                <asp:Label runat="server" Text="Wins"></asp:Label>
-                <asp:Label runat="server" Text="Losses"></asp:Label>
-            --%>
-        </div>
+        <asp:Panel id="TeamInfo" runat="server">
+            <asp:Label runat="server" Text="Coach: "></asp:Label>&nbsp;&nbsp;
+            <asp:Label id="Coach" runat="server"></asp:Label>
+            <br />
+            <asp:Label runat="server" Text="Assistant Coach: "></asp:Label>&nbsp;&nbsp;
+            <asp:Label id="AssistantCoach" runat="server"></asp:Label>
+            <br />
+            <asp:Label runat="server" Text="Wins: "></asp:Label>&nbsp;&nbsp;
+            <asp:Label id="Wins" runat="server"></asp:Label>
+            <br />
+            <asp:Label runat="server" Text="Losses: "></asp:Label>&nbsp;&nbsp;
+            <asp:Label id="Losses" runat="server"></asp:Label>
+        </asp:Panel>
         <br />
         <asp:GridView ID="PlayerList" runat="server"></asp:GridView>
     </div>
