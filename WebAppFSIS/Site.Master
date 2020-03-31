@@ -80,6 +80,11 @@
                                             style="color:black" runat="server">
                                             Exercise 6 Custom
                                     </a>
+                                    <a class="dropdown-item"
+                                            href="~/ExercisePages/Exercise09.aspx"
+                                            style="color:black" runat="server">
+                                            Exercise 9
+                                    </a>
                                 </div>
                             </li>
                             <li class="nav-item">
