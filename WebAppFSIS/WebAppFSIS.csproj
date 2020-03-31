@@ -123,6 +123,7 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
+    <Content Include="ExercisePages\Exercise06Custom.aspx" />
     <Content Include="ExercisePages\Exercise06.aspx" />
     <Content Include="ExercisePages\ExerciseHome.aspx" />
     <Content Include="ExercisePages\Exercise05.aspx" />
@@ -295,6 +296,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExercisePages\Exercise06Custom.aspx.cs">
+      <DependentUpon>Exercise06Custom.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExercisePages\Exercise06Custom.aspx.designer.cs">
+      <DependentUpon>Exercise06Custom.aspx</DependentUpon>
     </Compile>
     <Compile Include="ExercisePages\Exercise06.aspx.cs">
       <DependentUpon>Exercise06.aspx</DependentUpon>
