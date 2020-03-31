@@ -86,5 +86,17 @@ namespace WebAppFSIS.ExercisePages
                 }
             }
         }
+        protected void PlayerList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            PlayerList.PageIndex = e.NewPageIndex;
+            Fetch_Click(sender, new EventArgs());
+        }
+
+        protected void PlayerList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow playerRow = PlayerList.Rows[PlayerList.SelectedIndex];
+            string playerid = (playerRow.FindControl("PlayerID") as Label).Text;
+            Response.Redirect("CRUDPage.aspx?pid=" + playerid);
+        }
     }
 }

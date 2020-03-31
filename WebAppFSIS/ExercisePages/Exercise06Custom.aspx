@@ -22,7 +22,83 @@
             <asp:Label id="Losses" runat="server"></asp:Label>
         </asp:Panel>
         <br />
-        <asp:GridView ID="PlayerList" runat="server"></asp:GridView>
+        <asp:GridView ID="PlayerList" runat="server"
+            AutoGenerateColumns="false"
+            CssClass="table table-striped"
+            GridLines="Horizontal"
+            BorderStyle="None"
+            AllowPaging="true"
+            OnPageIndexChanging="PlayerList_PageIndexChanging"
+            PageSize="5">
+
+            <Columns>
+                <asp:TemplateField HeaderText="Player ID" Visible="true">
+                    <ItemStyle HorizontalAlign="Left" />
+                    <ItemTemplate>
+                        <asp:Label ID="PlayerID" runat="server"
+                            Text='<%# string.Format("{0}", Eval("PlayerID")) %>'>
+                        </asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="First Name" Visible="true">
+                    <ItemStyle HorizontalAlign="Left" />
+                    <ItemTemplate>
+                        <asp:Label ID="FirstName" runat="server"
+                            Text='<%# Eval("FirstName") %>'>
+                        </asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Last Name" Visible="true">
+                    <ItemStyle HorizontalAlign="Left" />
+                    <ItemTemplate>
+                        <asp:Label ID="LastName" runat="server"
+                            Text='<%# Eval("LastName") %>'>
+                        </asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Age" Visible="true">
+                    <ItemStyle HorizontalAlign="Left" />
+                    <ItemTemplate>
+                        <asp:Label ID="Age" runat="server"
+                            Text='<%# string.Format("{0}", Eval("Age")) %>'>
+                        </asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Gender" Visible="true">
+                    <ItemStyle HorizontalAlign="Left" />
+                    <ItemTemplate>
+                        <asp:Label ID="Gender" runat="server"
+                            Text='<%# Eval("Gender") %>'>
+                        </asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Guardian ID" Visible="true">
+                    <ItemStyle HorizontalAlign="Left" />
+                    <ItemTemplate>
+                        <asp:Label ID="GuardianID" runat="server"
+                            Text='<%# string.Format("{0}", Eval("GuardianID")) %>'>
+                        </asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Alberta Health Care Number" Visible="true">
+                    <itemstyle horizontalalign="Left" />
+                    <itemtemplate>
+                        <asp:Label ID="AlbertaHealthCareNumber" runat="server"
+                            Text='<%# Eval("AlbertaHealthCareNumber") %>'>
+                        </asp:Label>
+                    </itemtemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Medical Alert Details" Visible="true">
+                    <ItemStyle HorizontalAlign="Left" />
+                    <ItemTemplate>
+                        <asp:Label ID="MedicalAlertDetails" runat="server"
+                            Text='<%# Eval("MedicalAlertDetails") %>'>
+                        </asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+
+        </asp:GridView>
         <%-- Todo Custom Grid View --%>
     </div>
 </asp:Content>
