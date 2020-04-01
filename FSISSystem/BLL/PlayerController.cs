@@ -27,5 +27,15 @@ namespace FSISSystem.BLL
                 return results.ToList();
             }
         }
+
+        //public Player FindByPlayerID(int playerID)
+        //{
+        //    using (var context = new FSISContext())
+        //    {
+        //        IEnumerable<Player> results = context.Database.SqlQuery<Player>("Player_Get @playerID", new SqlParameter("playerID", playerID));
+        //        //return results.ToPlayer();
+        //        return new Player();
+        //    }
+        //}
     }
 }

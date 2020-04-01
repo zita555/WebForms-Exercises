@@ -25,6 +25,41 @@ namespace WebAppFSIS.ExercisePages
                 else
                 {
                     MessageLabel.Text = "Player ID: " + playerID;
+                    try
+                    {
+                        PlayerController playerController = new PlayerController();
+                        Player player = null;
+                        player = playerController.FindByPlayerID(int.Parse(playerID));
+
+                        TeamController teamController = new TeamController();
+                        List<Team> teamList = null;
+                        teamList = teamController.List();
+                        teamList.Sort((x, y) => x.TeamName.CompareTo(y.TeamName));
+                        TeamList.DataSource = teamList;
+                        TeamList.DataTextField = nameof(Team.TeamName);
+                        TeamList.DataValueField = nameof(Team.TeamID);
+                        TeamList.DataBind();
+                        //TeamList.Items.Insert(0, "Select a Team");
+
+                        GuardianController guardianController = new GuardianController();
+                        List<Guardian> guardianList = null;
+                        guardianList = guardianController.List();
+                        guardianList.Sort((x, y) => x.GuardianName.CompareTo(y.GuardianName));
+                        GuardianList.DataSource = guardianList;
+                        GuardianList.DataTextField = nameof(Guardian.GuardianName);
+                        GuardianList.DataValueField = nameof(Guardian.GuardianID);
+                        GuardianList.DataBind();
+                        //GuardianList.Items.Insert(0, "Select a Guardian");
+
+                        PlayerID.Text = string.Format("{0}", player.PlayerID);
+                        FirstName.Text = player.FirstName;
+                        LastName.Text = player.LastName;
+
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageLabel.Text = ex.Message;
+                    }
                 }
             }
         }
@@ -41,10 +76,6 @@ namespace WebAppFSIS.ExercisePages
 
         }
         protected void Update_Click(object sender, EventArgs e)
-        {
-
-        }
-        protected void Discontinue_Click(object sender, EventArgs e)
         {
 
         }

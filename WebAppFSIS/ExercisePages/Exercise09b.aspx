@@ -136,7 +136,6 @@
             <asp:Button ID="ClearButton" runat="server" OnClick="Clear_Click" Text="Clear" CausesValidation="false"/>&nbsp;&nbsp;
             <asp:Button ID="AddButton" runat="server" OnClick="Add_Click" Text="Add"/>&nbsp;&nbsp;
             <asp:Button ID="UpdateButton" runat="server" OnClick="Update_Click" Text="Update"/>&nbsp;&nbsp;
-            <asp:Button ID="DiscontinueButton" runat="server" OnClick="Discontinue_Click" Text="Discontinue"/>&nbsp;&nbsp;
         </div>
     </div>
 </asp:Content>

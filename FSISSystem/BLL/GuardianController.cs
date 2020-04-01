@@ -10,29 +10,20 @@ using FSISSystem.ENTITIES;
 
 namespace FSISSystem.BLL
 {
-    public class TeamController
+    public class GuardianController
     {
-        public Team Teams_FindByID(int teamid)
+        public List<Guardian> List()
         {
             using (var context = new FSISContext())
             {
-                return context.Teams.Find(teamid);
+                return context.Guardians.ToList();
             }
         }
-
-        public List<Team> List()
+        public List<Guardian> GetGuardians()
         {
             using (var context = new FSISContext())
             {
-                return context.Teams.ToList();
-            }
-        }
-
-        public List<Team> GetTeams()
-        {
-            using (var context = new FSISContext())
-            {
-                IEnumerable<Team> results = context.Database.SqlQuery<Team>("Team_List");
+                IEnumerable<Guardian> results = context.Database.SqlQuery<Guardian>("Guardian_List");
                 return results.ToList();
             }
         }
