@@ -126,6 +126,7 @@
     <Content Include="ExercisePages\Exercise09.aspx" />
     <Content Include="ExercisePages\Exercise06Custom.aspx" />
     <Content Include="ExercisePages\Exercise06.aspx" />
+    <Content Include="ExercisePages\Exercise09b.aspx" />
     <Content Include="ExercisePages\ExerciseHome.aspx" />
     <Content Include="ExercisePages\Exercise05.aspx" />
     <Content Include="favicon.ico" />
@@ -318,6 +319,13 @@
     </Compile>
     <Compile Include="ExercisePages\Exercise06.aspx.designer.cs">
       <DependentUpon>Exercise06.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ExercisePages\Exercise09b.aspx.cs">
+      <DependentUpon>Exercise09b.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ExercisePages\Exercise09b.aspx.designer.cs">
+      <DependentUpon>Exercise09b.aspx</DependentUpon>
     </Compile>
     <Compile Include="ExercisePages\ExerciseHome.aspx.cs">
       <DependentUpon>ExerciseHome.aspx</DependentUpon>
