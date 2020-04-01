@@ -39,7 +39,6 @@ namespace WebAppFSIS.ExercisePages
                         TeamList.DataTextField = nameof(Team.TeamName);
                         TeamList.DataValueField = nameof(Team.TeamID);
                         TeamList.DataBind();
-                        //TeamList.Items.Insert(0, "Select a Team");
 
                         GuardianController guardianController = new GuardianController();
                         List<Guardian> guardianList = null;
@@ -49,11 +48,17 @@ namespace WebAppFSIS.ExercisePages
                         GuardianList.DataTextField = nameof(Guardian.GuardianName);
                         GuardianList.DataValueField = nameof(Guardian.GuardianID);
                         GuardianList.DataBind();
-                        //GuardianList.Items.Insert(0, "Select a Guardian");
 
                         PlayerID.Text = string.Format("{0}", player.PlayerID);
                         FirstName.Text = player.FirstName;
                         LastName.Text = player.LastName;
+                        Age.Text = string.Format("{0}", player.Age);
+                        Gender.Text = player.Gender;
+                        AlbertaHealthCareNumber.Text = player.AlbertaHealthCareNumber;
+                        MedicalAlertDetails.Text = player.MedicalAlertDetails;
+
+                        TeamList.SelectedValue = string.Format("{0}", player.TeamID);
+                        GuardianList.SelectedValue = string.Format("{0}", player.GuardianID);
 
                     }
                     catch (Exception ex)
