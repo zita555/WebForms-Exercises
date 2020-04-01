@@ -12,7 +12,7 @@ namespace WebAppFSIS.ExercisePages
 {
     public partial class Exercise09b : System.Web.UI.Page
     {
-        private static List<Player> PlayerList = new List<Player>();
+        private static Player player = null;
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -28,7 +28,6 @@ namespace WebAppFSIS.ExercisePages
                     try
                     {
                         PlayerController playerController = new PlayerController();
-                        Player player = null;
                         player = playerController.FindByPlayerID(int.Parse(playerID));
 
                         TeamController teamController = new TeamController();
@@ -72,17 +71,26 @@ namespace WebAppFSIS.ExercisePages
         {
             Response.Redirect("Exercise09.aspx");
         }
-        protected void Clear_Click(object sender, EventArgs e)
+        protected void Reset_Click(object sender, EventArgs e)
         {
+            PlayerID.Text = string.Format("{0}", player.PlayerID);
+            FirstName.Text = player.FirstName;
+            LastName.Text = player.LastName;
+            Age.Text = string.Format("{0}", player.Age);
+            Gender.Text = player.Gender;
+            AlbertaHealthCareNumber.Text = player.AlbertaHealthCareNumber;
+            MedicalAlertDetails.Text = player.MedicalAlertDetails;
 
-        }
-        protected void Add_Click(object sender, EventArgs e)
-        {
-
+            TeamList.SelectedValue = string.Format("{0}", player.TeamID);
+            GuardianList.SelectedValue = string.Format("{0}", player.GuardianID);
         }
         protected void Update_Click(object sender, EventArgs e)
         {
-
+            PlayerController playerController = new PlayerController();
+        }
+        protected void Delete_Click(object sender, EventArgs e)
+        {
+            PlayerController playerController = new PlayerController();
         }
     }
 }
