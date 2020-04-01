@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Exercise09.aspx.cs" Inherits="WebAppFSIS.ExercisePages.Exercise09" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1> Multi Record Query Dropdown to Single Record via Page Navigation (EX09,10)</h1>
+    <h1>Exercise 09 Player Dropdown</h1>
     <div class="offset-2">
         <asp:Label ID="PlayerLabel" runat="server" Text="Select a Player: "></asp:Label>&nbsp;&nbsp;   
         <asp:DropDownList ID="PlayerList" runat="server"></asp:DropDownList>&nbsp;&nbsp;
