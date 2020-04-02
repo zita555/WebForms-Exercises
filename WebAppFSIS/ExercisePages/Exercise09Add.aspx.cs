@@ -16,27 +16,7 @@ namespace WebAppFSIS.ExercisePages
         {
             if (!Page.IsPostBack)
             {
-                string playerID = Request.QueryString["pid"];
-                if (string.IsNullOrEmpty(playerID))
-                {
-                    Response.Redirect("Exercise09.aspx");
-                }
-                else
-                {
-                    //MessageLabel.Text = "Player ID: " + playerID;
-                    GetPlayer();
-                    FirstName.Focus();
-                }
-            }
-        }
-        protected void GetPlayer()
-        {
-            string playerID = Request.QueryString["pid"];
-            Player player = null;
-            try
-            {
-                PlayerController playerController = new PlayerController();
-                player = playerController.FindByPlayerID(int.Parse(playerID));
+                FirstName.Focus();
 
                 TeamController teamController = new TeamController();
                 List<Team> teamList = null;
@@ -46,7 +26,6 @@ namespace WebAppFSIS.ExercisePages
                 TeamList.DataTextField = nameof(Team.TeamName);
                 TeamList.DataValueField = nameof(Team.TeamID);
                 TeamList.DataBind();
-                TeamList.Items.Insert(0, "Select a Team");
 
                 GuardianController guardianController = new GuardianController();
                 List<Guardian> guardianList = null;
@@ -56,32 +35,49 @@ namespace WebAppFSIS.ExercisePages
                 GuardianList.DataTextField = nameof(Guardian.GuardianName);
                 GuardianList.DataValueField = nameof(Guardian.GuardianID);
                 GuardianList.DataBind();
+
+                TeamList.Items.Insert(0, "Select a Team");
                 GuardianList.Items.Insert(0, "Select a Guardian");
-
-                PlayerID.Text = string.Format("{0}", player.PlayerID);
-                FirstName.Text = player.FirstName;
-                LastName.Text = player.LastName;
-                Age.Text = string.Format("{0}", player.Age);
-                Gender.Text = player.Gender;
-                AlbertaHealthCareNumber.Text = player.AlbertaHealthCareNumber;
-                MedicalAlertDetails.Text = player.MedicalAlertDetails;
-
-                TeamList.SelectedValue = string.Format("{0}", player.TeamID);
-                GuardianList.SelectedValue = string.Format("{0}", player.GuardianID);
-
+            }
+        }
+        protected Player CreatePlayer()
+        {
+            try
+            {
+                Player newPlayer = new Player();
+                newPlayer.FirstName = FirstName.Text;
+                newPlayer.LastName = LastName.Text;
+                newPlayer.Age = int.Parse(Age.Text);
+                newPlayer.Gender = Gender.Text;
+                newPlayer.AlbertaHealthCareNumber = AlbertaHealthCareNumber.Text;
+                newPlayer.MedicalAlertDetails = MedicalAlertDetails.Text;
+                newPlayer.TeamID = int.Parse(TeamList.SelectedValue);
+                newPlayer.GuardianID = int.Parse(GuardianList.SelectedValue);
+                return newPlayer;
             }
             catch (Exception ex)
             {
                 MessageLabel.Text = ex.Message;
+                //errormsgs.Add(GetInnerException(ex).ToString());
+                //LoadMessageDisplay(errormsgs, "alert alert-danger");
+                return null;
             }
         }
         protected void Back_Click(object sender, EventArgs e)
         {
             Response.Redirect("Exercise09.aspx");
         }
-        protected void Reset_Click(object sender, EventArgs e)
+        protected void Clear_Click(object sender, EventArgs e)
         {
-            
+            FirstName.Text = "";
+            LastName.Text = "";
+            Age.Text = "";
+            Gender.Text = "";
+            AlbertaHealthCareNumber.Text = "";
+            MedicalAlertDetails.Text = "";
+
+            TeamList.SelectedIndex = 0;
+            GuardianList.SelectedIndex = 0;
         }
         protected void Add_Click(object sender, EventArgs e)
         {
@@ -98,16 +94,18 @@ namespace WebAppFSIS.ExercisePages
             }
             else
             {
-                try
+                Player newPlayer = CreatePlayer();
+                if (newPlayer != null)
                 {
-                    //Player newPlayer = new Player(FirstName.Text, LastName.Text, Age.Text, Gender.Text, AlbertaHealthCareNumber.Text, MedicalAlertDetails.Text, TeamList.SelectedValue, GuardianList.SelectedValue);
-                    PlayerController playerController = new PlayerController();
-                    //playerController.UpdatePlayer(FirstName.Text, LastName.Text, Age.Text, Gender.Text, AlbertaHealthCareNumber.Text, MedicalAlertDetails.Text, TeamList.SelectedValue, GuardianList.SelectedValue)
-                    //playerController.AddPlayer(newPlayer);
-                }
-                catch (Exception ex)
-                {
-                    MessageLabel.Text += ex.Message;
+                    try
+                    {
+                        PlayerController playerController = new PlayerController();
+                        playerController.AddPlayer(newPlayer);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageLabel.Text += ex.Message;
+                    }
                 }
             }
         }

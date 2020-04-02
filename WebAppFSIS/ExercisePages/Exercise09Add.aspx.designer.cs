@@ -24,24 +24,6 @@ namespace WebAppFSIS.ExercisePages
         protected global::System.Web.UI.WebControls.Label MessageLabel;
 
         /// <summary>
-        /// PlayerIDLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label PlayerIDLabel;
-
-        /// <summary>
-        /// PlayerID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox PlayerID;
-
-        /// <summary>
         /// FirstNameLabel control.
         /// </summary>
         /// <remarks>
@@ -195,30 +177,21 @@ namespace WebAppFSIS.ExercisePages
         protected global::System.Web.UI.WebControls.Button BackButton;
 
         /// <summary>
-        /// ResetButton control.
+        /// ClearButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ResetButton;
+        protected global::System.Web.UI.WebControls.Button ClearButton;
 
         /// <summary>
-        /// UpdateButton control.
+        /// AddButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button UpdateButton;
-
-        /// <summary>
-        /// DeleteButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button DeleteButton;
+        protected global::System.Web.UI.WebControls.Button AddButton;
     }
 }

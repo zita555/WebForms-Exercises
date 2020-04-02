@@ -1,4 +1,4 @@
-﻿<%@ Page Page Title="" Language="C#" MasterPageFile="~/Site.Master"
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master"
     AutoEventWireup="true" CodeBehind="Exercise09Add.aspx.cs" Inherits="WebAppFSIS.ExercisePages.Exercise09Add" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
@@ -36,17 +36,6 @@
         </div>--%>
     </div>
 
-    <div class="row">
-        <div class="col-md-4 text-right">
-                <asp:Label ID="PlayerIDLabel" runat="server" Text="Player ID"
-                     AssociatedControlID="PlayerID">
-                </asp:Label>
-        </div>
-        <div class="col-md-4 text-left">
-                <asp:TextBox ID="PlayerID" runat="server" readonly="true">
-                </asp:TextBox>
-        </div>
-    </div>
     <div class="row">
         <div class="col-md-4 text-right">
                   <asp:Label ID="FirstNameLabel" runat="server" Text="First Name"
@@ -133,9 +122,8 @@
         </div>
         <div class="col-md-6 text-left">
             <asp:Button ID="BackButton" runat="server" Text="Back" CausesValidation="false" OnClick="Back_Click" />&nbsp;&nbsp;
-            <asp:Button ID="ResetButton" runat="server" OnClick="Reset_Click" Text="Reset" CausesValidation="false"/>&nbsp;&nbsp;
-            <asp:Button ID="UpdateButton" runat="server" OnClick="Update_Click" Text="Update"/>&nbsp;&nbsp;            
-            <asp:Button ID="DeleteButton" runat="server" OnClick="Delete_Click" Text="Delete"/>&nbsp;&nbsp;
+            <asp:Button ID="ClearButton" runat="server" OnClick="Clear_Click" Text="Clear" CausesValidation="false"/>&nbsp;&nbsp;
+            <asp:Button ID="AddButton" runat="server" OnClick="Add_Click" Text="Add"/>&nbsp;&nbsp;            
         </div>
     </div>
 </asp:Content>
