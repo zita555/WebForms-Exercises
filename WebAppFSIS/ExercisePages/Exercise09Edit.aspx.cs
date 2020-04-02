@@ -12,6 +12,7 @@ namespace WebAppFSIS.ExercisePages
 {
     public partial class Exercise09Edit : System.Web.UI.Page
     {
+        List<string> errormsgs = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -70,12 +71,34 @@ namespace WebAppFSIS.ExercisePages
             }
             catch (Exception ex)
             {
-                MessageLabel.Text = ex.Message;
+                //MessageLabel.Text = ex.Message;
+                errormsgs.Add(GetInnerException(ex).ToString());
+                LoadMessageDisplay(errormsgs, "alert alert-danger");
             }
         }
         protected Player CreatePlayer()
         {
-
+            try
+            {
+                Player newPlayer = new Player();
+                newPlayer.PlayerID = int.Parse(PlayerID.Text);
+                newPlayer.FirstName = FirstName.Text;
+                newPlayer.LastName = LastName.Text;
+                newPlayer.Age = int.Parse(Age.Text);
+                newPlayer.Gender = Gender.Text;
+                newPlayer.AlbertaHealthCareNumber = AlbertaHealthCareNumber.Text;
+                newPlayer.MedicalAlertDetails = MedicalAlertDetails.Text;
+                newPlayer.TeamID = int.Parse(TeamList.SelectedValue);
+                newPlayer.GuardianID = int.Parse(GuardianList.SelectedValue);
+                return newPlayer;
+            }
+            catch (Exception ex)
+            {
+                //MessageLabel.Text = ex.Message;
+                errormsgs.Add(GetInnerException(ex).ToString());
+                LoadMessageDisplay(errormsgs, "alert alert-danger");
+                return null;
+            }
         }
         protected void Back_Click(object sender, EventArgs e)
         {
@@ -87,15 +110,21 @@ namespace WebAppFSIS.ExercisePages
         }
         protected void Update_Click(object sender, EventArgs e)
         {
-            try
+            Player newPlayer = CreatePlayer();
+
+            if (newPlayer != null)
             {
-                //Player newPlayer = new Player(FirstName.Text, LastName.Text, Age.Text, Gender.Text, AlbertaHealthCareNumber.Text, MedicalAlertDetails.Text, TeamList.SelectedValue, GuardianList.SelectedValue);
-                PlayerController playerController = new PlayerController();
-                //playerController.UpdatePlayer(newPlayer);
-            }
-            catch (Exception ex)
-            {
-                MessageLabel.Text = ex.Message;
+                try
+                {
+                    PlayerController playerController = new PlayerController();
+                    playerController.UpdatePlayer(newPlayer);
+                }
+                catch (Exception ex)
+                {
+                    //MessageLabel.Text = ex.Message;
+                    errormsgs.Add(GetInnerException(ex).ToString());
+                    LoadMessageDisplay(errormsgs, "alert alert-danger");
+                }
             }
         }
         protected void Delete_Click(object sender, EventArgs e)
@@ -104,13 +133,32 @@ namespace WebAppFSIS.ExercisePages
             {
                 string playerID = Request.QueryString["pid"];
                 PlayerController playerController = new PlayerController();
-                //playerController.DeletePlayer(PlayerID);
+                
+                
+
+                playerController.DeletePlayer(int.Parse(playerID));
                 Response.Redirect("Exercise09.aspx");
             }
             catch (Exception ex)
             {
-                MessageLabel.Text = ex.Message;
+                //MessageLabel.Text = ex.Message;
+                errormsgs.Add(GetInnerException(ex).ToString());
+                LoadMessageDisplay(errormsgs, "alert alert-danger");
             }
+        }
+        protected Exception GetInnerException(Exception ex)
+        {
+            while (ex.InnerException != null)
+            {
+                ex = ex.InnerException;
+            }
+            return ex;
+        }
+        protected void LoadMessageDisplay(List<string> errormsglist, string cssclass)
+        {
+            Message.CssClass = cssclass;
+            Message.DataSource = errormsglist;
+            Message.DataBind();
         }
     }
 }

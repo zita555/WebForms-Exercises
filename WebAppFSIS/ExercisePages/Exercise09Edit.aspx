@@ -35,6 +35,12 @@
         </div>--%>
     </div>
 
+    <asp:DataList ID="Message" runat="server">
+        <ItemTemplate>
+            <%# Container.DataItem %>
+        </ItemTemplate>
+    </asp:DataList>
+
     <div class="row">
         <div class="col-md-4 text-right">
                 <asp:Label ID="PlayerIDLabel" runat="server" Text="Player ID"
