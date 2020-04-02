@@ -40,8 +40,20 @@ namespace WebAppFSIS.ExercisePages
                 MessageLabel.Text = ex.Message;
             }
         }
-
-        protected void Fetch_Click(object sender, EventArgs e)
+        protected void Add_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string playerid = PlayerList.SelectedValue;
+                Response.Redirect("Exercise09Add.aspx");
+                //MessageLabel.Text = "Redirect to Crud Page";
+            }
+            catch (Exception ex)
+            {
+                MessageLabel.Text = ex.Message;
+            }
+        }
+        protected void Edit_Click(object sender, EventArgs e)
         {
             if (PlayerList.SelectedIndex == 0)
             {
@@ -52,7 +64,7 @@ namespace WebAppFSIS.ExercisePages
                 try
                 {
                     string playerid = PlayerList.SelectedValue;
-                    Response.Redirect("Exercise09b.aspx?pid=" + playerid); 
+                    Response.Redirect("Exercise09Edit.aspx?pid=" + playerid); 
                     //MessageLabel.Text = "Redirect to Crud Page";
                 }
                 catch (Exception ex)

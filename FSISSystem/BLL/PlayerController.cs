@@ -36,5 +36,20 @@ namespace FSISSystem.BLL
                 return results.ToList()[0];
             }
         }
+
+        public void AddPlayer(Player newPlayer)
+        {
+            using (var context = new FSISContext())
+            {
+                //context.Database.SqlQuery("Player_Add");
+            }
+        }
+        public void DeletePlayer(int playerID)
+        {
+            using (var context = new FSISContext())
+            {
+
+            }
+        }
     }
 }

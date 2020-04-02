@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Site.Master"
-    AutoEventWireup="true" CodeBehind="Exercise09b.aspx.cs" Inherits="WebAppFSIS.ExercisePages.Exercise09b" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Exercise09Edit.aspx.cs" Inherits="WebAppFSIS.ExercisePages.Exercise09Edit" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Exercise 09 CRUD</h1>
