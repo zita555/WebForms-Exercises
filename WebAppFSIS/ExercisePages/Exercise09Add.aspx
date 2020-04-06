@@ -2,33 +2,42 @@
     AutoEventWireup="true" CodeBehind="Exercise09Add.aspx.cs" Inherits="WebAppFSIS.ExercisePages.Exercise09Add" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Exercise 09 CRUD</h1>
-    <asp:Label ID="MessageLabel" runat="server"></asp:Label><br />
-    <div class="row">
-        <div class="col-md-12 alert alert-info">
-            Players CRUD Page
-        </div>
-    </div>
+    <h1>Exercise 09 Add a Player</h1>
+    <asp:DataList ID="Message" runat="server">
+        <ItemTemplate>
+            <%# Container.DataItem %>
+        </ItemTemplate>
+    </asp:DataList>
     <div class="row">
         <%-- Validation --%>
         <div class="col-md-12 text-left">
+            <%-- Player ID --%>
+            <%--<asp:RequiredFieldValidator ID="RequiredPlayerID" runat="server"
+                ErrorMessage="Player ID is required" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
+                ControlToValidate="PlayerID">
+            </asp:RequiredFieldValidator>
+            <asp:CompareValidator ID="ComparePlayerID" runat="server"
+                ErrorMessage="Player ID must be a positive integer" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
+                ControlToValidate="PlayerID" Type="Integer" ValueToCompare ="0" Operator="GreaterThanEqual">
+            </asp:CompareValidator>--%>
+
             <%-- First Name --%>
             <asp:RequiredFieldValidator ID="RequiredFirstName" runat="server"
                 ErrorMessage="First name is required" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
                 ControlToValidate="FirstName"> 
             </asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegExFirstName" runat="server"
+            <%--<asp:RegularExpressionValidator ID="RegExFirstName" runat="server"
                 ErrorMessage="First name can be at most 50 characters" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="FirstName" ValidationExpression="[a-zA-Z]{0,50}">
-            </asp:RegularExpressionValidator>
+            </asp:RegularExpressionValidator>--%>
 
             <%-- Last Name --%>
             <asp:RequiredFieldValidator ID="RequiredLastName" runat="server"
                 ErrorMessage="Last name is required" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
                 ControlToValidate="LastName"> 
             </asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegExLastName" runat="server"
+            <%--<asp:RegularExpressionValidator ID="RegExLastName" runat="server"
                 ErrorMessage="Last name can be at most 50 characters" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="LastName" ValidationExpression="^[a-zA-Z]{0,50}$">
-            </asp:RegularExpressionValidator>
+            </asp:RegularExpressionValidator>--%>
             
             <%-- Age --%>
             <asp:RequiredFieldValidator ID="RequiredAge" runat="server"
@@ -45,9 +54,9 @@
                 ErrorMessage="Gender is Required" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
                 ControlToValidate="Gender">
             </asp:RequiredFieldValidator>
-            <asp:RegularExpressionValidator ID="RegExGender" runat="server"
-                ErrorMessage="Gender can only be a single character" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="Gender" ValidationExpression="[a-zAZ]{1}">
-            </asp:RegularExpressionValidator>
+            <%--<asp:RegularExpressionValidator ID="RegExGender" runat="server"
+                ErrorMessage="Gender can only be a single character" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="Gender" ValidationExpression="[a-zA-Z]{1}">
+            </asp:RegularExpressionValidator>--%>
 
             <%-- Alberta Health Care Number --%>
             <asp:RequiredFieldValidator ID="RequiredAlbertaHealthCareNumber" runat="server"
@@ -55,27 +64,27 @@
                 ControlToValidate="AlbertaHealthCareNumber">
             </asp:RequiredFieldValidator>
             <asp:RegularExpressionValidator ID="RegExAlbertaHealthCareNumber" runat="server"
-                ErrorMessage="Alberta Health Care Number must be 10 digits and cannot begin with 0" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
+                ErrorMessage="Alberta Health Care Number must be 10 digits and cannot begin with a 0" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
                 ControlToValidate="AlbertaHealthCareNumber" ValidationExpression="[1-9]{1}[0-9]{9}">
             </asp:RegularExpressionValidator>
 
             <%-- Medical Alert Details --%>
-            <asp:RegularExpressionValidator ID="RegExMedicalAlertDetails" runat="server"
+            <%--<asp:RegularExpressionValidator ID="RegExMedicalAlertDetails" runat="server"
                 ErrorMessage="Medical Alert Details can be at most 250 characters" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
                 ControlToValidate="MedicalAlertDetails" ValidationExpression="[a-zA-Z]{0,250}">
-            </asp:RegularExpressionValidator>
+            </asp:RegularExpressionValidator>--%>
 
             <%-- Team --%>
-            <asp:RangeValidator ID="RangeTeamList" runat="server"
+           <%-- <asp:RangeValidator ID="RangeTeamList" runat="server"
                 ErrorMessage="A team must be selected" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
                 ControlToValidate="TeamList" MinimumValue="1" MaximumValue="2147483647" Type="Integer">
-            </asp:RangeValidator>
+            </asp:RangeValidator>--%>
 
             <%-- Guardian --%>
-            <asp:RangeValidator ID="RangeGuardianList" runat="server"
+            <%--<asp:RangeValidator ID="RangeGuardianList" runat="server"
                 ErrorMessage="A guardian must be selected" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
                 ControlToValidate="GuardianList" MinimumValue="1" MaximumValue="2147483647" Type="Integer">
-            </asp:RangeValidator>
+            </asp:RangeValidator>--%>
 
             <asp:ValidationSummary ID="ValidationSummary1" runat="server"
                 HeaderText="Address the following concerns with your entered data." />
@@ -124,9 +133,10 @@
                      AssociatedControlID="TeamList">
                 </asp:Label>
         </div>
-        <div class="col-md-4 text-left">
+        <div class="col-md-8 text-left">
                 <asp:DropDownList ID="TeamList" runat="server" Width="350px" >
-                </asp:DropDownList> 
+                </asp:DropDownList>
+            <asp:Button ID="LookUpButton" Text="Look Up" runat="server" OnClick="LookUp_Click" CausesValidation="false"/> 
         </div>
     </div>
     <div class="row">
@@ -171,5 +181,62 @@
             <asp:Button ID="ClearButton" runat="server" OnClick="Clear_Click" Text="Clear" CausesValidation="false"/>&nbsp;&nbsp;
             <asp:Button ID="AddButton" runat="server" OnClick="Add_Click" Text="Add"/>&nbsp;&nbsp;            
         </div>
+    </div>
+
+    <br />
+    <div class="offset-2 col-md-6">
+    <asp:Label ID="PlayerListLabel" runat="server" AssociatedControlID="PlayerList"></asp:Label>
+    <asp:GridView ID="PlayerList" runat="server"
+            AutoGenerateColumns="false"
+            CssClass="table table-striped"
+            GridLines="Horizontal"
+            BorderStyle="None"
+            AllowPaging="true"
+            OnPageIndexChanging="PlayerList_PageIndexChanging"
+            PageSize="5">
+        
+            <Columns>
+                <asp:TemplateField HeaderText="Player ID" Visible="true">
+                    <ItemStyle HorizontalAlign="Left" />
+                    <ItemTemplate>
+                        <asp:Label ID="PlayerID" runat="server"
+                            Text='<%# string.Format("{0}", Eval("PlayerID")) %>'>
+                        </asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="First Name" Visible="true">
+                    <ItemStyle HorizontalAlign="Left" />
+                    <ItemTemplate>
+                        <asp:Label ID="FirstName" runat="server"
+                            Text='<%# Eval("FirstName") %>'>
+                        </asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Last Name" Visible="true">
+                    <ItemStyle HorizontalAlign="Left" />
+                    <ItemTemplate>
+                        <asp:Label ID="LastName" runat="server"
+                            Text='<%# Eval("LastName") %>'>
+                        </asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Age" Visible="true">
+                    <ItemStyle HorizontalAlign="Left" />
+                    <ItemTemplate>
+                        <asp:Label ID="Age" runat="server"
+                            Text='<%# string.Format("{0}", Eval("Age")) %>'>
+                        </asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="Gender" Visible="true">
+                    <ItemStyle HorizontalAlign="Left" />
+                    <ItemTemplate>
+                        <asp:Label ID="Gender" runat="server"
+                            Text='<%# Eval("Gender") %>'>
+                        </asp:Label>
+                    </ItemTemplate>
+                </asp:TemplateField>
+            </Columns>
+        </asp:GridView>
     </div>
 </asp:Content>

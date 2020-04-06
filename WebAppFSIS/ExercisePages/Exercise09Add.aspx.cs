@@ -12,6 +12,8 @@ namespace WebAppFSIS.ExercisePages
 {
     public partial class Exercise09Add : System.Web.UI.Page
     {
+        protected readonly string[] GENDER_LIST = { "M", "F" };
+        List<string> errormsgs = new List<string>();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!Page.IsPostBack)
@@ -50,16 +52,15 @@ namespace WebAppFSIS.ExercisePages
                 newPlayer.Age = int.Parse(Age.Text);
                 newPlayer.Gender = Gender.Text;
                 newPlayer.AlbertaHealthCareNumber = AlbertaHealthCareNumber.Text;
-                newPlayer.MedicalAlertDetails = MedicalAlertDetails.Text;
+                newPlayer.MedicalAlertDetails = string.IsNullOrEmpty(MedicalAlertDetails.Text) ? null : MedicalAlertDetails.Text;
                 newPlayer.TeamID = int.Parse(TeamList.SelectedValue);
                 newPlayer.GuardianID = int.Parse(GuardianList.SelectedValue);
                 return newPlayer;
             }
             catch (Exception ex)
             {
-                MessageLabel.Text = ex.Message;
-                //errormsgs.Add(GetInnerException(ex).ToString());
-                //LoadMessageDisplay(errormsgs, "alert alert-danger");
+                errormsgs.Add(GetInnerException(ex).ToString());
+                LoadMessageDisplay(errormsgs, "alert alert-danger");
                 return null;
             }
         }
@@ -81,48 +82,113 @@ namespace WebAppFSIS.ExercisePages
         }
         protected void Add_Click(object sender, EventArgs e)
         {
-            if (TeamList.SelectedIndex == 0 || GuardianList.SelectedIndex == 0)
+            FirstName.Text = FirstName.Text.Trim();
+            LastName.Text = LastName.Text.Trim();
+            Age.Text = Age.Text.Trim();
+            Gender.Text = Gender.Text.Trim().ToUpper();
+            AlbertaHealthCareNumber.Text = AlbertaHealthCareNumber.Text.Trim();
+            MedicalAlertDetails.Text = MedicalAlertDetails.Text.Trim();
+
+            Validate(sender, e);
+            if (errormsgs.Count > 0)
             {
-                if (TeamList.SelectedIndex == 0)
-                {
-                    MessageLabel.Text += "Select a Team.\n";
-                }
-                else if (GuardianList.SelectedIndex == 0)
-                {
-                    MessageLabel.Text += "Select a Guardian.\n";
-                }
+                LoadMessageDisplay(errormsgs, "alert alert-info");
+            }
+
+            try
+            {
+                Player newPlayer = CreatePlayer();
+                PlayerController playerController = new PlayerController();
+                int playerID = playerController.AddPlayer(newPlayer);
+
+                FirstName.Enabled = false;
+                LastName.Enabled = false;
+                Age.Enabled = false;
+                Gender.Enabled = false;
+                AlbertaHealthCareNumber.Enabled = false;
+                MedicalAlertDetails.Enabled = false;
+
+                TeamList.Enabled = false;
+                GuardianList.Enabled = false;
+
+                AddButton.Enabled = false;
+                ClearButton.Enabled = false;
+
+                errormsgs.Add($"Player #{playerID} - {newPlayer.PlayerName} added to {TeamList.SelectedItem.Text}");
+                LoadMessageDisplay(errormsgs, "alert alert-success");
+                LookUp_Click(sender, new EventArgs());
+
+            }
+            catch (Exception ex)
+            {
+                errormsgs.Add(GetInnerException(ex).ToString());
+                LoadMessageDisplay(errormsgs, "alert alert-danger");
+            }
+        }
+
+        protected void Validate(object sender, EventArgs e)
+        {
+            if (TeamList.SelectedIndex == 0)
+            {
+                errormsgs.Add("A Team must be selected");
+            }
+            if (GuardianList.SelectedIndex == 0)
+            {
+                errormsgs.Add("A Guardian must be selected");
+            }
+            if (!GENDER_LIST.Contains(Gender.Text))
+            {
+                errormsgs.Add("Please select a valid gender");
+            }
+        }
+
+        protected void LookUp_Click(object sender, EventArgs e)
+        {
+            if (TeamList.SelectedIndex == 0)
+            {
+                errormsgs.Add("Select a team to view its players.");
+                LoadMessageDisplay(errormsgs, "alert alert-danger");
             }
             else
             {
-                Player newPlayer = CreatePlayer();
-                if (newPlayer != null)
+                TeamController teamController = new TeamController();
+                Team teamInfo = null;
+                teamInfo = teamController.Teams_FindByID(int.Parse(TeamList.SelectedValue));
+                try
                 {
-                    try
-                    {
-                        PlayerController playerController = new PlayerController();
-                        playerController.Player_Add(newPlayer);
-
-                        FirstName.Enabled = false;
-                        LastName.Enabled = false;
-                        Age.Enabled = false;
-                        Gender.Enabled = false;
-                        AlbertaHealthCareNumber.Enabled = false;
-                        MedicalAlertDetails.Enabled = false;
-
-                        TeamList.Enabled = false;
-                        GuardianList.Enabled = false;
-
-                        AddButton.Enabled = false;
-                        ClearButton.Enabled = false;
-
-                        MessageLabel.Text = "New Player Added";
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageLabel.Text += ex.Message;
-                    }
+                    PlayerController playerController = new PlayerController();
+                    List<Player> listOfPlayers = null;
+                    listOfPlayers = playerController.FindByID(int.Parse(TeamList.SelectedValue));
+                    listOfPlayers.Sort((x, y) => x.PlayerName.CompareTo(y.PlayerName));
+                    PlayerList.DataSource = listOfPlayers;
+                    PlayerList.DataBind();
+                    PlayerListLabel.Text = TeamList.SelectedItem.Text;
+                }
+                catch (Exception ex)
+                {
+                    errormsgs.Add(GetInnerException(ex).ToString());
+                    LoadMessageDisplay(errormsgs, "alert alert-danger");
                 }
             }
+        }
+        protected void PlayerList_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            PlayerList.PageIndex = e.NewPageIndex;
+            LookUp_Click(sender, new EventArgs());
+        }
+        protected Exception GetInnerException(Exception ex)
+        {
+            while (ex.InnerException != null)
+            {
+                ex = ex.InnerException;
+            }
+            return ex;
+        }
+        protected void LoadMessageDisplay(List<string> errormsglist, string cssclass)
+        {
+            Message.CssClass = cssclass;
+            Message.DataSource = errormsglist;
+            Message.DataBind();
         }
     }
 }

@@ -37,63 +37,34 @@ namespace FSISSystem.BLL
             }
         }
 
-        public void Player_Add(Player newPlayer)
+        public int AddPlayer(Player newPlayer)
         {
-            int playerID = newPlayer.PlayerID;
-            string firstName = newPlayer.FirstName;
-            string lastName = newPlayer.LastName;
-            int age = newPlayer.Age;
-            string gender = newPlayer.Gender;
-            string albertaHealthCareNumber = newPlayer.AlbertaHealthCareNumber;
-            string medicalAlertDetails = newPlayer.MedicalAlertDetails;
-            int teamID = newPlayer.TeamID;
-            int guardianID = newPlayer.GuardianID;
-
-
             using (var context = new FSISContext())
             {
-                context.Database.ExecuteSqlCommand("Player_Add @guardianID, @teamID, @firstName, @lastName, @age, @gender, @albertaHealthCareNumber, @MedicalAlertDetails",
-                    new SqlParameter("guardianID", guardianID),
-                    new SqlParameter("teamID", teamID),
-                    new SqlParameter("firstName", firstName),
-                    new SqlParameter("lastName", lastName),
-                    new SqlParameter("age", age),
-                    new SqlParameter("gender", gender),
-                    new SqlParameter("albertaHealthCareNumber", albertaHealthCareNumber),
-                    new SqlParameter("medicalAlertDetails", medicalAlertDetails));
+                context.Players.Add(newPlayer);
+                context.SaveChanges();
+                return newPlayer.PlayerID;
             }
         }
-        public void Player_Update(Player player)
+        public int UpdatePlayer(Player player)
         {
-            int playerID = player.PlayerID;
-            string firstName = player.FirstName;
-            string lastName = player.LastName;
-            int age = player.Age;
-            string gender = player.Gender;
-            string albertaHealthCareNumber = player.AlbertaHealthCareNumber;
-            string medicalAlertDetails = player.MedicalAlertDetails;
-            int teamID = player.TeamID;
-            int guardianID = player.GuardianID;
-
             using (var context = new FSISContext())
             {
-                context.Database.ExecuteSqlCommand("Player_Update @playerID, @guardianID, @teamID, @firstName, @lastName, @age, @gender, @albertaHealthCareNumber, @MedicalAlertDetails",
-                    new SqlParameter("playerID", playerID),
-                    new SqlParameter("guardianID", guardianID),
-                    new SqlParameter("teamID", teamID),
-                    new SqlParameter("firstName", firstName),
-                    new SqlParameter("lastName", lastName),
-                    new SqlParameter("age", age),
-                    new SqlParameter("gender", gender),
-                    new SqlParameter("albertaHealthCareNumber", albertaHealthCareNumber),
-                    new SqlParameter("medicalAlertDetails", medicalAlertDetails));
+                context.Entry(player).State = System.Data.Entity.EntityState.Modified;
+                return context.SaveChanges();
             }
         }
-        public void Player_Delete(int playerID)
+        public int DeletePlayer(int playerID)
         {
             using (var context = new FSISContext())
             {
-                context.Database.ExecuteSqlCommand("Player_Delete @playerID", new SqlParameter("playerID", playerID));
+                Player player = context.Players.Find(playerID);
+                if (player == null)
+                {
+                    throw new Exception("Player has already been removed from the database");
+                }
+                context.Players.Remove(player);
+                return context.SaveChanges();
             }
         }
     }

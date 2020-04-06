@@ -15,31 +15,13 @@ namespace WebAppFSIS.ExercisePages
     {
 
         /// <summary>
-        /// MessageLabel control.
+        /// DataList1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label MessageLabel;
-
-        /// <summary>
-        /// RequiredPlayerID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredPlayerID;
-
-        /// <summary>
-        /// ComparePlayerID control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator ComparePlayerID;
+        protected global::System.Web.UI.WebControls.DataList DataList1;
 
         /// <summary>
         /// RequiredFirstName control.
@@ -51,15 +33,6 @@ namespace WebAppFSIS.ExercisePages
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFirstName;
 
         /// <summary>
-        /// RegExFirstName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExFirstName;
-
-        /// <summary>
         /// RequiredLastName control.
         /// </summary>
         /// <remarks>
@@ -67,15 +40,6 @@ namespace WebAppFSIS.ExercisePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredLastName;
-
-        /// <summary>
-        /// RegExLastName control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExLastName;
 
         /// <summary>
         /// RequiredAge control.
@@ -87,13 +51,13 @@ namespace WebAppFSIS.ExercisePages
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredAge;
 
         /// <summary>
-        /// CompareAge control.
+        /// RangeAge control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CompareValidator CompareAge;
+        protected global::System.Web.UI.WebControls.RangeValidator RangeAge;
 
         /// <summary>
         /// RequiredGender control.
@@ -103,15 +67,6 @@ namespace WebAppFSIS.ExercisePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredGender;
-
-        /// <summary>
-        /// RegExGender control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExGender;
 
         /// <summary>
         /// RequiredAlbertaHealthCareNumber control.
@@ -130,33 +85,6 @@ namespace WebAppFSIS.ExercisePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExAlbertaHealthCareNumber;
-
-        /// <summary>
-        /// RegExMedicalAlertDetails control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExMedicalAlertDetails;
-
-        /// <summary>
-        /// RangeTeamList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeTeamList;
-
-        /// <summary>
-        /// RangeGuardianList control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RangeValidator RangeGuardianList;
 
         /// <summary>
         /// ValidationSummary1 control.
@@ -285,6 +213,15 @@ namespace WebAppFSIS.ExercisePages
         protected global::System.Web.UI.WebControls.DropDownList TeamList;
 
         /// <summary>
+        /// LookUpButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button LookUpButton;
+
+        /// <summary>
         /// GuardianListLabel control.
         /// </summary>
         /// <remarks>
@@ -373,5 +310,23 @@ namespace WebAppFSIS.ExercisePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button DeleteButton;
+
+        /// <summary>
+        /// PlayerListLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label PlayerListLabel;
+
+        /// <summary>
+        /// PlayerList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView PlayerList;
     }
 }
