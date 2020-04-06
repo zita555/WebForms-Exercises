@@ -100,7 +100,22 @@ namespace WebAppFSIS.ExercisePages
                     try
                     {
                         PlayerController playerController = new PlayerController();
-                        playerController.AddPlayer(newPlayer);
+                        playerController.Player_Add(newPlayer);
+
+                        FirstName.Enabled = false;
+                        LastName.Enabled = false;
+                        Age.Enabled = false;
+                        Gender.Enabled = false;
+                        AlbertaHealthCareNumber.Enabled = false;
+                        MedicalAlertDetails.Enabled = false;
+
+                        TeamList.Enabled = false;
+                        GuardianList.Enabled = false;
+
+                        AddButton.Enabled = false;
+                        ClearButton.Enabled = false;
+
+                        MessageLabel.Text = "New Player Added";
                     }
                     catch (Exception ex)
                     {

@@ -28,7 +28,7 @@ namespace FSISSystem.BLL
             }
         }
 
-        public Player FindByPlayerID(int playerID)
+        public Player Player_Find(int playerID)
         {
             using (var context = new FSISContext())
             {
@@ -37,7 +37,7 @@ namespace FSISSystem.BLL
             }
         }
 
-        public void AddPlayer(Player newPlayer)
+        public void Player_Add(Player newPlayer)
         {
             int playerID = newPlayer.PlayerID;
             string firstName = newPlayer.FirstName;
@@ -63,7 +63,7 @@ namespace FSISSystem.BLL
                     new SqlParameter("medicalAlertDetails", medicalAlertDetails));
             }
         }
-        public void UpdatePlayer(Player player)
+        public void Player_Update(Player player)
         {
             int playerID = player.PlayerID;
             string firstName = player.FirstName;
@@ -89,7 +89,7 @@ namespace FSISSystem.BLL
                     new SqlParameter("medicalAlertDetails", medicalAlertDetails));
             }
         }
-        public void DeletePlayer(int playerID)
+        public void Player_Delete(int playerID)
         {
             using (var context = new FSISContext())
             {

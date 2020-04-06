@@ -37,7 +37,7 @@ namespace WebAppFSIS.ExercisePages
             try
             {
                 PlayerController playerController = new PlayerController();
-                player = playerController.FindByPlayerID(int.Parse(playerID));
+                player = playerController.Player_Find(int.Parse(playerID));
 
                 TeamController teamController = new TeamController();
                 List<Team> teamList = null;
@@ -117,7 +117,7 @@ namespace WebAppFSIS.ExercisePages
                 try
                 {
                     PlayerController playerController = new PlayerController();
-                    playerController.UpdatePlayer(newPlayer);
+                    playerController.Player_Update(newPlayer);
                 }
                 catch (Exception ex)
                 {
@@ -136,7 +136,7 @@ namespace WebAppFSIS.ExercisePages
                 
                 
 
-                playerController.DeletePlayer(int.Parse(playerID));
+                playerController.Player_Delete(int.Parse(playerID));
                 Response.Redirect("Exercise09.aspx");
             }
             catch (Exception ex)

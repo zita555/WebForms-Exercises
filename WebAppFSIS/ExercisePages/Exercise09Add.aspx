@@ -10,30 +10,76 @@
         </div>
     </div>
     <div class="row">
-        <%--<div class="col-md-12 text-left">
-            <asp:RequiredFieldValidator ID="RequiredProductName" runat="server"
-                ErrorMessage="Product name is required" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
-                ControlToValidate="ProductName"> 
+        <%-- Validation --%>
+        <div class="col-md-12 text-left">
+            <%-- First Name --%>
+            <asp:RequiredFieldValidator ID="RequiredFirstName" runat="server"
+                ErrorMessage="First name is required" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
+                ControlToValidate="FirstName"> 
             </asp:RequiredFieldValidator>
-            <asp:CompareValidator ID="CompareUnitPrice" runat="server"
-                ErrorMessage="Unit Price must be 0.00 or greater" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
-                ControlToValidate="UnitPrice" Operator="GreaterThanEqual" ValueToCompare="0.00" Type="Double"> 
-            </asp:CompareValidator>
-            <asp:RangeValidator ID="RangeUnitsInStock" runat="server"
-                ErrorMessage="Units in stock must be between 0 and 32767" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
-                ControlToValidate="UnitsInStock" MaximumValue="32767" MinimumValue="0" Type="Integer"> 
+            <asp:RegularExpressionValidator ID="RegExFirstName" runat="server"
+                ErrorMessage="First name can be at most 50 characters" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="FirstName" ValidationExpression="[a-zA-Z]{0,50}">
+            </asp:RegularExpressionValidator>
+
+            <%-- Last Name --%>
+            <asp:RequiredFieldValidator ID="RequiredLastName" runat="server"
+                ErrorMessage="Last name is required" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
+                ControlToValidate="LastName"> 
+            </asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegExLastName" runat="server"
+                ErrorMessage="Last name can be at most 50 characters" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="LastName" ValidationExpression="^[a-zA-Z]{0,50}$">
+            </asp:RegularExpressionValidator>
+            
+            <%-- Age --%>
+            <asp:RequiredFieldValidator ID="RequiredAge" runat="server"
+                ErrorMessage="Age is required" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
+                ControlToValidate="Age">
+            </asp:RequiredFieldValidator>
+            <asp:RangeValidator ID="RangeAge" runat="server"
+                ErrorMessage="Age must be between 6 and 14" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
+                ControlToValidate="Age" MinimumValue="6" MaximumValue="14" Type="Integer">
             </asp:RangeValidator>
-            <asp:RangeValidator ID="RangeUnitsOnOrder" runat="server"
-                ErrorMessage="Units on order must be between 0 and 32767" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
-                ControlToValidate="UnitsOnOrder" MaximumValue="32767" MinimumValue="0" Type="Integer"> 
+
+            <%-- Gender --%>
+            <asp:RequiredFieldValidator ID="RequiredGender" runat="server"
+                ErrorMessage="Gender is Required" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
+                ControlToValidate="Gender">
+            </asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegExGender" runat="server"
+                ErrorMessage="Gender can only be a single character" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="Gender" ValidationExpression="[a-zAZ]{1}">
+            </asp:RegularExpressionValidator>
+
+            <%-- Alberta Health Care Number --%>
+            <asp:RequiredFieldValidator ID="RequiredAlbertaHealthCareNumber" runat="server"
+                ErrorMessage="Alberta Health Care Number is required" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
+                ControlToValidate="AlbertaHealthCareNumber">
+            </asp:RequiredFieldValidator>
+            <asp:RegularExpressionValidator ID="RegExAlbertaHealthCareNumber" runat="server"
+                ErrorMessage="Alberta Health Care Number must be 10 digits and cannot begin with 0" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
+                ControlToValidate="AlbertaHealthCareNumber" ValidationExpression="[1-9]{1}[0-9]{9}">
+            </asp:RegularExpressionValidator>
+
+            <%-- Medical Alert Details --%>
+            <asp:RegularExpressionValidator ID="RegExMedicalAlertDetails" runat="server"
+                ErrorMessage="Medical Alert Details can be at most 250 characters" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
+                ControlToValidate="MedicalAlertDetails" ValidationExpression="[a-zA-Z]{0,250}">
+            </asp:RegularExpressionValidator>
+
+            <%-- Team --%>
+            <asp:RangeValidator ID="RangeTeamList" runat="server"
+                ErrorMessage="A team must be selected" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
+                ControlToValidate="TeamList" MinimumValue="1" MaximumValue="2147483647" Type="Integer">
             </asp:RangeValidator>
-            <asp:RangeValidator ID="RangeReorderLevel" runat="server"
-                ErrorMessage="Reorder levlel must be between 0 and 32767" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
-                ControlToValidate="ReorderLevel" MaximumValue="32767" MinimumValue="0" Type="Integer"> 
+
+            <%-- Guardian --%>
+            <asp:RangeValidator ID="RangeGuardianList" runat="server"
+                ErrorMessage="A guardian must be selected" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
+                ControlToValidate="GuardianList" MinimumValue="1" MaximumValue="2147483647" Type="Integer">
             </asp:RangeValidator>
+
             <asp:ValidationSummary ID="ValidationSummary1" runat="server"
                 HeaderText="Address the following concerns with your entered data." />
-        </div>--%>
+        </div>
     </div>
 
     <div class="row">
