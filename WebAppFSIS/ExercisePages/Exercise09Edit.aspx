@@ -196,7 +196,7 @@
             <asp:Button ID="BackButton" runat="server" Text="Back" CausesValidation="false" OnClick="Back_Click" />&nbsp;&nbsp;
             <asp:Button ID="ResetButton" runat="server" OnClick="Reset_Click" Text="Reset" CausesValidation="false"/>&nbsp;&nbsp;
             <asp:Button ID="UpdateButton" runat="server" OnClick="Update_Click" Text="Update"/>&nbsp;&nbsp;            
-            <asp:Button ID="DeleteButton" runat="server" OnClick="Delete_Click" Text="Delete"/>&nbsp;&nbsp;
+            <asp:Button ID="DeleteButton" runat="server" onClientClick="return CallFunction();" OnClick="Delete_Click" Text="Delete"/>&nbsp;&nbsp;
         </div>
     </div>
 
@@ -256,4 +256,9 @@
             </Columns>
         </asp:GridView>
     </div>
+    <script type="text/javascript">
+       function CallFunction() {
+           return confirm("Are you sure you wish to delete this item?");
+       }
+   </script>
 </asp:Content>

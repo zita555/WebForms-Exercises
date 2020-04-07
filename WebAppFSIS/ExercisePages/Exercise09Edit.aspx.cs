@@ -148,6 +148,8 @@ namespace WebAppFSIS.ExercisePages
         {
             try
             {
+                //ScriptManager.RegisterStartupScript(this, GetType(), "CallFuncation", "CallFunction();", true);
+
                 string playerID = Request.QueryString["pid"];
                 PlayerController playerController = new PlayerController();
 
