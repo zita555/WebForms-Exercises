@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebAppFSIS.ExercisePages {
-    
-    
-    public partial class Exercise05 {
-        
+namespace WebAppFSIS.ExercisePages
+{
+
+
+    public partial class Ex05
+    {
+
         /// <summary>
         /// TeamIDArg control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace WebAppFSIS.ExercisePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TeamIDArg;
-        
+
         /// <summary>
         /// Fetch control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace WebAppFSIS.ExercisePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Fetch;
-        
+
         /// <summary>
         /// MessageLabel control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace WebAppFSIS.ExercisePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label MessageLabel;
-        
+
         /// <summary>
         /// TeamID control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace WebAppFSIS.ExercisePages {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label TeamID;
-        
+
         /// <summary>
         /// TeamDescription control.
         /// </summary>

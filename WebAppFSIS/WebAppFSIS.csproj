@@ -123,13 +123,12 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
-    <Content Include="ExercisePages\Exercise09.aspx" />
-    <Content Include="ExercisePages\Exercise06Custom.aspx" />
-    <Content Include="ExercisePages\Exercise06.aspx" />
-    <Content Include="ExercisePages\Exercise09Add.aspx" />
-    <Content Include="ExercisePages\Exercise09Edit.aspx" />
-    <Content Include="ExercisePages\ExerciseHome.aspx" />
-    <Content Include="ExercisePages\Exercise05.aspx" />
+    <Content Include="ExercisePages\Ex09.aspx" />
+    <Content Include="ExercisePages\Ex06Custom.aspx" />
+    <Content Include="ExercisePages\Ex06Default.aspx" />
+    <Content Include="ExercisePages\Ex09Add.aspx" />
+    <Content Include="ExercisePages\Ex09Edit.aspx" />
+    <Content Include="ExercisePages\Ex05.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
@@ -300,54 +299,47 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ExercisePages\Exercise09.aspx.cs">
-      <DependentUpon>Exercise09.aspx</DependentUpon>
+    <Compile Include="ExercisePages\Ex09.aspx.cs">
+      <DependentUpon>Ex09.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ExercisePages\Exercise09.aspx.designer.cs">
-      <DependentUpon>Exercise09.aspx</DependentUpon>
+    <Compile Include="ExercisePages\Ex09.aspx.designer.cs">
+      <DependentUpon>Ex09.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ExercisePages\Exercise06Custom.aspx.cs">
-      <DependentUpon>Exercise06Custom.aspx</DependentUpon>
+    <Compile Include="ExercisePages\Ex06Custom.aspx.cs">
+      <DependentUpon>Ex06Custom.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ExercisePages\Exercise06Custom.aspx.designer.cs">
-      <DependentUpon>Exercise06Custom.aspx</DependentUpon>
+    <Compile Include="ExercisePages\Ex06Custom.aspx.designer.cs">
+      <DependentUpon>Ex06Custom.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ExercisePages\Exercise06.aspx.cs">
-      <DependentUpon>Exercise06.aspx</DependentUpon>
+    <Compile Include="ExercisePages\Ex06Default.aspx.cs">
+      <DependentUpon>Ex06Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ExercisePages\Exercise06.aspx.designer.cs">
-      <DependentUpon>Exercise06.aspx</DependentUpon>
+    <Compile Include="ExercisePages\Ex06Default.aspx.designer.cs">
+      <DependentUpon>Ex06Default.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ExercisePages\Exercise09Add.aspx.cs">
-      <DependentUpon>Exercise09Add.aspx</DependentUpon>
+    <Compile Include="ExercisePages\Ex09Add.aspx.cs">
+      <DependentUpon>Ex09Add.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ExercisePages\Exercise09Add.aspx.designer.cs">
-      <DependentUpon>Exercise09Add.aspx</DependentUpon>
+    <Compile Include="ExercisePages\Ex09Add.aspx.designer.cs">
+      <DependentUpon>Ex09Add.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ExercisePages\Exercise09Edit.aspx.cs">
-      <DependentUpon>Exercise09Edit.aspx</DependentUpon>
+    <Compile Include="ExercisePages\Ex09Edit.aspx.cs">
+      <DependentUpon>Ex09Edit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ExercisePages\Exercise09Edit.aspx.designer.cs">
-      <DependentUpon>Exercise09Edit.aspx</DependentUpon>
+    <Compile Include="ExercisePages\Ex09Edit.aspx.designer.cs">
+      <DependentUpon>Ex09Edit.aspx</DependentUpon>
     </Compile>
-    <Compile Include="ExercisePages\ExerciseHome.aspx.cs">
-      <DependentUpon>ExerciseHome.aspx</DependentUpon>
+    <Compile Include="ExercisePages\Ex05.aspx.cs">
+      <DependentUpon>Ex05.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ExercisePages\ExerciseHome.aspx.designer.cs">
-      <DependentUpon>ExerciseHome.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ExercisePages\Exercise05.aspx.cs">
-      <DependentUpon>Exercise05.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ExercisePages\Exercise05.aspx.designer.cs">
-      <DependentUpon>Exercise05.aspx</DependentUpon>
+    <Compile Include="ExercisePages\Ex05.aspx.designer.cs">
+      <DependentUpon>Ex05.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

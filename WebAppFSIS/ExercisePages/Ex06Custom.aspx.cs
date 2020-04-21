@@ -10,7 +10,7 @@ using FSISSystem.ENTITIES;
 
 namespace WebAppFSIS.ExercisePages
 {
-    public partial class Exercise06Custom : System.Web.UI.Page
+    public partial class Ex06Custom : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

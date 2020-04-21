@@ -12,7 +12,7 @@ namespace FSISSystem.BLL
 {
     public class PlayerController
     {
-        public List<Player> List()
+        public List<Player> Player_List()
         {
             using (var context = new FSISContext())
             {
@@ -36,8 +36,7 @@ namespace FSISSystem.BLL
                 return results.ToList()[0];
             }
         }
-
-        public int AddPlayer(Player newPlayer)
+        public int Player_Add(Player newPlayer)
         {
             using (var context = new FSISContext())
             {

@@ -11,7 +11,7 @@ namespace WebAppFSIS.ExercisePages
 {
 
 
-    public partial class Exercise06
+    public partial class Ex06Default
     {
 
         /// <summary>

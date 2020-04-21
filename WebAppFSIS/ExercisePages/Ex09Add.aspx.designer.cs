@@ -11,7 +11,7 @@ namespace WebAppFSIS.ExercisePages
 {
 
 
-    public partial class Exercise09Add
+    public partial class Ex09Add
     {
 
         /// <summary>
@@ -33,6 +33,15 @@ namespace WebAppFSIS.ExercisePages
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFirstName;
 
         /// <summary>
+        /// RegExFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExFirstName;
+
+        /// <summary>
         /// RequiredLastName control.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace WebAppFSIS.ExercisePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredLastName;
+
+        /// <summary>
+        /// RegExLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExLastName;
 
         /// <summary>
         /// RequiredAge control.
@@ -69,6 +87,15 @@ namespace WebAppFSIS.ExercisePages
         protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredGender;
 
         /// <summary>
+        /// RegExGender control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExGender;
+
+        /// <summary>
         /// RequiredAlbertaHealthCareNumber control.
         /// </summary>
         /// <remarks>
@@ -85,6 +112,24 @@ namespace WebAppFSIS.ExercisePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegExAlbertaHealthCareNumber;
+
+        /// <summary>
+        /// RangeTeamList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeTeamList;
+
+        /// <summary>
+        /// RangeGuardianList control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RangeValidator RangeGuardianList;
 
         /// <summary>
         /// ValidationSummary1 control.

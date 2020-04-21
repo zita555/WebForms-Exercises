@@ -11,7 +11,7 @@ namespace WebAppFSIS.ExercisePages
 {
 
 
-    public partial class Exercise09
+    public partial class Ex09
     {
 
         /// <summary>
@@ -33,15 +33,6 @@ namespace WebAppFSIS.ExercisePages
         protected global::System.Web.UI.WebControls.DropDownList PlayerList;
 
         /// <summary>
-        /// AddButton control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button AddButton;
-
-        /// <summary>
         /// EditButton control.
         /// </summary>
         /// <remarks>
@@ -49,6 +40,15 @@ namespace WebAppFSIS.ExercisePages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button EditButton;
+
+        /// <summary>
+        /// AddButton control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button AddButton;
 
         /// <summary>
         /// MessageLabel control.

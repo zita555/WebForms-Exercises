@@ -10,7 +10,7 @@ using FSISSystem.ENTITIES;
 
 namespace WebAppFSIS.ExercisePages
 {
-    public partial class Exercise09Edit : System.Web.UI.Page
+    public partial class Ex09Edit : System.Web.UI.Page
     {
         protected readonly string[] GENDER_LIST = { "M", "F" };
         List<string> errormsgs = new List<string>();
@@ -21,7 +21,7 @@ namespace WebAppFSIS.ExercisePages
                 string playerID = Request.QueryString["pid"];
                 if (string.IsNullOrEmpty(playerID))
                 {
-                    Response.Redirect("Exercise09.aspx");
+                    Response.Redirect("Ex09.aspx");
                 }
                 else
                 {
@@ -101,7 +101,7 @@ namespace WebAppFSIS.ExercisePages
         }
         protected void Back_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Exercise09.aspx");
+            Response.Redirect("Ex09.aspx");
         }
         protected void Reset_Click(object sender, EventArgs e)
         {
@@ -134,7 +134,7 @@ namespace WebAppFSIS.ExercisePages
                 }
                 else
                 {
-                    errormsgs.Add("Player could not be updated");
+                    errormsgs.Add("Player could not be updated");//
                     LoadMessageDisplay(errormsgs, "alert alert-info");
                 }
             }

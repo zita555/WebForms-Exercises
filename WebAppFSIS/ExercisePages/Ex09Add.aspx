@@ -1,8 +1,9 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Exercise09Edit.aspx.cs" Inherits="WebAppFSIS.ExercisePages.Exercise09Edit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master"
+    AutoEventWireup="true" CodeBehind="Ex09Add.aspx.cs" Inherits="WebAppFSIS.ExercisePages.Ex09Add" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <h1>Exercise 09 Edit Player</h1>
-    <asp:DataList ID="DataList1" runat="server">
+    <h1>Exercise 10 - Add a Player</h1>
+    <asp:DataList ID="Message" runat="server">
         <ItemTemplate>
             <%# Container.DataItem %>
         </ItemTemplate>
@@ -25,18 +26,18 @@
                 ErrorMessage="First name is required" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
                 ControlToValidate="FirstName"> 
             </asp:RequiredFieldValidator>
-            <%--<asp:RegularExpressionValidator ID="RegExFirstName" runat="server"
+            <asp:RegularExpressionValidator ID="RegExFirstName" runat="server"
                 ErrorMessage="First name can be at most 50 characters" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="FirstName" ValidationExpression="[a-zA-Z]{0,50}">
-            </asp:RegularExpressionValidator>--%>
+            </asp:RegularExpressionValidator>
 
             <%-- Last Name --%>
             <asp:RequiredFieldValidator ID="RequiredLastName" runat="server"
                 ErrorMessage="Last name is required" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
                 ControlToValidate="LastName"> 
             </asp:RequiredFieldValidator>
-            <%--<asp:RegularExpressionValidator ID="RegExLastName" runat="server"
+            <asp:RegularExpressionValidator ID="RegExLastName" runat="server"
                 ErrorMessage="Last name can be at most 50 characters" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="LastName" ValidationExpression="^[a-zA-Z]{0,50}$">
-            </asp:RegularExpressionValidator>--%>
+            </asp:RegularExpressionValidator>
             
             <%-- Age --%>
             <asp:RequiredFieldValidator ID="RequiredAge" runat="server"
@@ -53,9 +54,9 @@
                 ErrorMessage="Gender is Required" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
                 ControlToValidate="Gender">
             </asp:RequiredFieldValidator>
-            <%--<asp:RegularExpressionValidator ID="RegExGender" runat="server"
-                ErrorMessage="Gender can only be a single character" Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="Gender" ValidationExpression="[a-zA-Z]{1}">
-            </asp:RegularExpressionValidator>--%>
+            <asp:RegularExpressionValidator ID="RegExGender" runat="server"
+                ErrorMessage="Gender can only be a single character, F or M." Display="None" SetFocusOnError="true" ForeColor="Firebrick" ControlToValidate="Gender" ValidationExpression="[F,f,M,m]{1}">
+            </asp:RegularExpressionValidator>
 
             <%-- Alberta Health Care Number --%>
             <asp:RequiredFieldValidator ID="RequiredAlbertaHealthCareNumber" runat="server"
@@ -74,39 +75,22 @@
             </asp:RegularExpressionValidator>--%>
 
             <%-- Team --%>
-           <%-- <asp:RangeValidator ID="RangeTeamList" runat="server"
+            <asp:RangeValidator ID="RangeTeamList" runat="server"
                 ErrorMessage="A team must be selected" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
                 ControlToValidate="TeamList" MinimumValue="1" MaximumValue="2147483647" Type="Integer">
-            </asp:RangeValidator>--%>
+            </asp:RangeValidator>
 
             <%-- Guardian --%>
-            <%--<asp:RangeValidator ID="RangeGuardianList" runat="server"
+            <asp:RangeValidator ID="RangeGuardianList" runat="server"
                 ErrorMessage="A guardian must be selected" Display="None" SetFocusOnError="true" ForeColor="Firebrick"
                 ControlToValidate="GuardianList" MinimumValue="1" MaximumValue="2147483647" Type="Integer">
-            </asp:RangeValidator>--%>
+            </asp:RangeValidator>
 
             <asp:ValidationSummary ID="ValidationSummary1" runat="server"
                 HeaderText="Address the following concerns with your entered data." />
         </div>
     </div>
 
-    <asp:DataList ID="Message" runat="server">
-        <ItemTemplate>
-            <%# Container.DataItem %>
-        </ItemTemplate>
-    </asp:DataList>
-
-    <div class="row">
-        <div class="col-md-4 text-right">
-                <asp:Label ID="PlayerIDLabel" runat="server" Text="Player ID"
-                     AssociatedControlID="PlayerID">
-                </asp:Label>
-        </div>
-        <div class="col-md-4 text-left">
-                <asp:TextBox ID="PlayerID" runat="server" readonly="true">
-                </asp:TextBox>
-        </div>
-    </div>
     <div class="row">
         <div class="col-md-4 text-right">
                   <asp:Label ID="FirstNameLabel" runat="server" Text="First Name"
@@ -151,8 +135,8 @@
         </div>
         <div class="col-md-8 text-left">
                 <asp:DropDownList ID="TeamList" runat="server" Width="350px" >
-                </asp:DropDownList> 
-            <asp:Button ID="LookUpButton" Text="Look Up" runat="server" OnClick="LookUp_Click" CausesValidation="false"/>
+                </asp:DropDownList>
+            <asp:Button ID="LookUpButton" Text="Look Up" runat="server" OnClick="LookUp_Click" CausesValidation="false"/> 
         </div>
     </div>
     <div class="row">
@@ -188,15 +172,14 @@
                 </asp:TextBox>
         </div>
     </div>
-
+    <br />
     <div class="row">
         <div class="col-md-4">
         </div>
         <div class="col-md-6 text-left">
             <asp:Button ID="BackButton" runat="server" Text="Back" CausesValidation="false" OnClick="Back_Click" />&nbsp;&nbsp;
-            <asp:Button ID="ResetButton" runat="server" OnClick="Reset_Click" Text="Reset" CausesValidation="false"/>&nbsp;&nbsp;
-            <asp:Button ID="UpdateButton" runat="server" OnClick="Update_Click" Text="Update"/>&nbsp;&nbsp;            
-            <asp:Button ID="DeleteButton" runat="server" onClientClick="return CallFunction();" OnClick="Delete_Click" Text="Delete"/>&nbsp;&nbsp;
+            <asp:Button ID="ClearButton" runat="server" OnClick="Clear_Click" Text="Clear" CausesValidation="false"/>&nbsp;&nbsp;
+            <asp:Button ID="AddButton" runat="server" OnClick="Add_Click" Text="Add"/>&nbsp;&nbsp;            
         </div>
     </div>
 
@@ -256,9 +239,4 @@
             </Columns>
         </asp:GridView>
     </div>
-    <script type="text/javascript">
-       function CallFunction() {
-           return confirm("Are you sure you wish to delete this item?");
-       }
-   </script>
 </asp:Content>

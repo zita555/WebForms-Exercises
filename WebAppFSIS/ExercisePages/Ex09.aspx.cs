@@ -10,7 +10,7 @@ using FSISSystem.ENTITIES;
 
 namespace WebAppFSIS.ExercisePages
 {
-    public partial class Exercise09 : System.Web.UI.Page
+    public partial class Ex09 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,7 +27,7 @@ namespace WebAppFSIS.ExercisePages
             {
                 PlayerController playerController = new PlayerController();
                 List<Player> listOfPlayers = null;
-                listOfPlayers = playerController.List();
+                listOfPlayers = playerController.Player_List();
                 listOfPlayers.Sort((x, y) => x.PlayerName.CompareTo(y.PlayerName));
                 PlayerList.DataSource = listOfPlayers;
                 PlayerList.DataTextField = nameof(Player.PlayerName);
@@ -45,7 +45,7 @@ namespace WebAppFSIS.ExercisePages
             try
             {
                 string playerid = PlayerList.SelectedValue;
-                Response.Redirect("Exercise09Add.aspx");
+                Response.Redirect("Ex09Add.aspx");
                 //MessageLabel.Text = "Redirect to Crud Page";
             }
             catch (Exception ex)
@@ -64,7 +64,7 @@ namespace WebAppFSIS.ExercisePages
                 try
                 {
                     string playerid = PlayerList.SelectedValue;
-                    Response.Redirect("Exercise09Edit.aspx?pid=" + playerid); 
+                    Response.Redirect("Ex09Edit.aspx?pid=" + playerid); 
                     //MessageLabel.Text = "Redirect to Crud Page";
                 }
                 catch (Exception ex)

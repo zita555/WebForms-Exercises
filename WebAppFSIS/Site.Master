@@ -42,7 +42,7 @@
             <div class="navbar navbar-inverse">
                 <nav class="navbar navbar-expand-md navbar-light fixed-top">
                     <a class="navbar-brand" href="Default.aspx" runat="server">
-                            <strong>Bootstrap 4+</strong>
+                            <strong>Jing</strong>
                     </a>
                     <button class="navbar-toggler" type="button"
                             data-toggle="collapse" data-target="#navbarMenuName"
@@ -60,30 +60,30 @@
                                         ExercisePages
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarSubMenu">
-                                    <a class="dropdown-item"
+<%--                                    <a class="dropdown-item"
                                             href="~/ExercisePages/ExerciseHome.aspx"
                                             style="color:black" runat="server">
                                             ExerciseHome
+                                    </a>--%>
+                                    <a class="dropdown-item"
+                                            href="~/ExercisePages/Ex05.aspx"
+                                            style="color:black" runat="server">
+                                            Exercise 05
                                     </a>
                                     <a class="dropdown-item"
-                                            href="~/ExercisePages/Exercise05.aspx"
+                                            href="~/ExercisePages/Ex06Default.aspx"
                                             style="color:black" runat="server">
-                                            Exercise 5
+                                            Exercise 06 Default
                                     </a>
                                     <a class="dropdown-item"
-                                            href="~/ExercisePages/Exercise06.aspx"
+                                            href="~/ExercisePages/Ex06Custom.aspx"
                                             style="color:black" runat="server">
-                                            Exercise 6
+                                            Exercise 06 Custom
                                     </a>
                                     <a class="dropdown-item"
-                                            href="~/ExercisePages/Exercise06Custom.aspx"
+                                            href="~/ExercisePages/Ex09.aspx"
                                             style="color:black" runat="server">
-                                            Exercise 6 Custom
-                                    </a>
-                                    <a class="dropdown-item"
-                                            href="~/ExercisePages/Exercise09.aspx"
-                                            style="color:black" runat="server">
-                                            Exercise 9
+                                            Exercise 09&10
                                     </a>
                                 </div>
                             </li>

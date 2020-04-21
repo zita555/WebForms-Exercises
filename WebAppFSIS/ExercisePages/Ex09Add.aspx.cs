@@ -10,7 +10,7 @@ using FSISSystem.ENTITIES;
 
 namespace WebAppFSIS.ExercisePages
 {
-    public partial class Exercise09Add : System.Web.UI.Page
+    public partial class Ex09Add : System.Web.UI.Page
     {
         protected readonly string[] GENDER_LIST = { "M", "F" };
         List<string> errormsgs = new List<string>();
@@ -66,7 +66,7 @@ namespace WebAppFSIS.ExercisePages
         }
         protected void Back_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Exercise09.aspx");
+            Response.Redirect("Ex09.aspx");
         }
         protected void Clear_Click(object sender, EventArgs e)
         {
@@ -99,7 +99,7 @@ namespace WebAppFSIS.ExercisePages
             {
                 Player newPlayer = CreatePlayer();
                 PlayerController playerController = new PlayerController();
-                int playerID = playerController.AddPlayer(newPlayer);
+                int playerID = playerController.Player_Add(newPlayer);
 
                 FirstName.Enabled = false;
                 LastName.Enabled = false;
